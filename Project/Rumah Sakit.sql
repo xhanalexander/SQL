@@ -5,53 +5,53 @@ use rumah_sakit;
 CREATE TABLE dokter (
 	id_dokter 			int primary key,
 	nama_dokter			varchar(50) 		not null,
-	lahirtanggal_dokter 	date,
+	lahirtanggal_dokter 		date,
 	alamat_dokter			varchar(25),
 	telp_dokter			varchar(15)
 );
 
 CREATE TABLE pasien (
-	id_pasien				int primary key,
+	id_pasien			int primary key,
 	nama_pasien			varchar(50)		not null,
 	jenis_kelamin			char(1),
 	umur_pasien			date,
 	berat_pasien			float(3),
-	golongandarah_pasien	varchar(3),
+	golongandarah_pasien		varchar(3),
 	tinggi_pasien			float(3),
 	telp_pasien			float(12),
 	gejala_pasien			varchar(25)
 );
 
 create table ruang_pasien (
-	id_ruang				int primary key,
+	id_ruang			int primary key,
 	tipe_ruang			varchar(50),
 	status_ruang 			varchar(20)
 );
 
 create table obat (
 	id_obat				int auto_increment primary key,
-	nama_obat				varchar(50)		not null,
+	nama_obat			varchar(50)		not null,
 	jenis_obat			varchar(50),
 	harga_obat			float(12),
-	stok_obat				float(3),
+	stok_obat			float(3),
 	golongan_obat			varchar(25),
-	kadaluarsa_obat		date
+	kadaluarsa_obat			date
 );
 
 create table petugas (
 	id_petugas			int primary key,
-	nama_petugas			varchar(50)	not null,
+	nama_petugas			varchar(50)		not null,
 	telp_petugas			varchar(12)
 );
 
 create table tagihan (
 	id_tagihan			int primary key,
-	tanggal_tagihan		datetime,
-	id_pasien				int references pasien(id_pasien),
-	id_dokter				int references dokter(id_dokter),
+	tanggal_tagihan			datetime,
+	id_pasien			int references pasien(id_pasien),
+	id_dokter			int references dokter(id_dokter),
 	biaya_dokter			float(7),
 	id_petugas			int references petugas(id_petugas),
-	id_ruang				int references ruang_pasien(id_ruang),
+	id_ruang			int references ruang_pasien(id_ruang),
 	biaya_ruang_inap		float(6),
 	id_obat				int references obat(id_obat),
 	harga_satuan_obat		float(7),
