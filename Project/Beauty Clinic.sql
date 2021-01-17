@@ -173,16 +173,16 @@ INSERT biayakonsultasi values
 
 CREATE view MonitorClient as
 	select NamaDokter,
-		count(NamaDokter) as JumlahClientDimonitor
-		from booking
-		group by NamaDokter;
+	count(NamaDokter) as JumlahClientDimonitor
+	from booking
+	group by NamaDokter;
 
-create view honorDokter as
+CREATE view honorDokter as
 	select tanggalkonsultasi,NamaDokter,BiayaPerawatan,HargaBeliObat,
 	((BiayaPerawatan*0.6)+(HargaBeliObat*0.1)) as Totalhonor
 	from biayakonsultasi;
 
-create view nota as
+CREATE view nota as
 	select BiayaPerawatan,id_obat,HargaBeliObat,
 	(BiayaPerawatan)+(HargaBeliObat) as totalbiayakonsultasi
 	from biayakonsultasi
