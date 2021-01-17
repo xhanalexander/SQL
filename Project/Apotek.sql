@@ -4,25 +4,25 @@ CREATE DATABASE Apotek;
 USE Apotek;
 
 CREATE TABLE dokter (
-	id_dokter 			int	primary key, -- kode
+	id_dokter 			int primary key, -- kode
 	nama_dokter			varchar(50) 		not null,
-	lahirtanggal_dokter 	date,
+	lahirtanggal_dokter 		date,
 	alamat_dokter			varchar(25),
 	telp_dokter			varchar(30)
 );
 
 CREATE TABLE obat (
 	id_obat				int auto_increment primary key,
-	nama_obat				varchar(50)		not null,
+	nama_obat			varchar(50)		not null,
 	jenis_obat			varchar(50),
 	harga_obat			float(12),
-	stok_obat				integer(3),
+	stok_obat			integer(3),
 	golongan_obat			varchar(15),
-	kadaluarsa_obat		date
+	kadaluarsa_obat			date
 );
 
 CREATE TABLE pasien (
-	id_pasien				int primary key,
+	id_pasien			int primary key,
 	nama_pasien			varchar(50)		not null,
 	jenis_kelamin			char(1),
 	umur_pasien			date,
@@ -42,11 +42,11 @@ CREATE TABLE transaksi (
 	id_transaksi			int primary key,
 	tanggal_transaksi		date,
 	id_pegawai			int REFERENCES pegawai(id_pegawai),
-	id_pasien				int REFERENCES pasien(id_pasien),
-	id_dokter				int REFERENCES dokter(id_dokter),
+	id_pasien			int REFERENCES pasien(id_pasien),
+	id_dokter			int REFERENCES dokter(id_dokter),
 	id_obat				int REFERENCES obat(id_obat),
 	jumlah_obat			float(3),
-	harga_beli_obat		float(9)
+	harga_beli_obat			float(9)
 );
 
 INSERT dokter VALUES
