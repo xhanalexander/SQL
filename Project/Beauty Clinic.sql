@@ -20,11 +20,11 @@ INSERT dokter values
 ('7','Hafis Samahuddin','1981/10/18','jl.Dermaga I','081354218789');
 
 CREATE TABLE client (
-	id_client			     int primary key,
+	id_client			int primary key,
 	NamaClient			varchar(50)		not null,
 	NamaBelakang			varchar(50),
 	JenisKelamin			varchar(1),
-	Umur					varchar(2),
+	Umur				varchar(2),
 	BeratBadan			varchar(3),
 	TinggiBadan			varchar(3),
 	Alamat				varchar(25),
@@ -60,14 +60,14 @@ INSERT karyawan values
 ('6','Adinda','Salsa','082214151617',null);
 
 CREATE TABLE booking (
-	id_booking               int,
-	id_client                int,
+	id_booking               	int,
+	id_client                	int,
 	NamaDokter			varchar(50) REFERENCES dokter(NamaDokter),
 	NamaKaryawan			varchar(50) REFERENCES karyawan(NamaKaryawan),
 	TanggalBooking			timestamp default current_timestamp,
 	JenisLayanan			varchar(50) null,
-	primary key              (id_booking),
-	Foreign key              (id_client) REFERENCES client(id_client)
+	primary key              	(id_booking),
+	Foreign key              	(id_client) REFERENCES client(id_client)
 		on update cascade
 		on delete cascade
 );
@@ -85,8 +85,8 @@ INSERT booking values
 ('10','10','Jimmy Gerald','Widya','2018-05-08','Mesoterapi');
 
 CREATE TABLE jadwalDokter (
-	id_jadwal				int,
-	id_dokter				int,
+	id_jadwal			int,
+	id_dokter			int,
 	HariPraktek			varchar(6),
 	JamPraktek			varchar(16),
 	primary key			(id_jadwal),
@@ -108,10 +108,10 @@ INSERT jadwalDokter values
 
 CREATE TABLE obatPerawatan (
 	id_obat				int primary key,	/* autoincrement isi tabel nya "null".*/
-	KodeObat				char(10) UNIQUE key,
-	NamaObat				varchar(25),
+	KodeObat			char(10) UNIQUE key,
+	NamaObat			varchar(25),
 	kadaluarsa			date,
-	JenisObat				varchar(10),
+	JenisObat			varchar(10),
 	HargaBeliObat			float(7)			/* bisa pakai (int atau float) untuk manual */
 );
 
@@ -133,7 +133,7 @@ INSERT obatPerawatan values
 ('15','Mad','Madu','2020-1-1','herbal','80000');
 
 CREATE TABLE servisPerawatan (
-	id_servis				int,
+	id_servis			int,
 	JenisPerawatan			varchar(25),
 	BiayaPerawatan			varchar(7),
 	primary key			(id_servis)
@@ -147,7 +147,7 @@ INSERT servisPerawatan values
 ('15','Dermal Fillers','5125000');
 
 CREATE TABLE biayakonsultasi (
-	id_servis				int,
+	id_servis			int,
 	id_booking			int,
 	tanggalkonsultasi		date,
 	NamaClient			varchar(50) REFERENCES client(NamaClient),
