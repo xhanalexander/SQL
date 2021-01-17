@@ -22,13 +22,13 @@ CREATE TABLE pasien (
 	gejala_pasien			varchar(25)
 );
 
-create table ruang_pasien (
+CREATE TABLE ruang_pasien (
 	id_ruang			int primary key,
 	tipe_ruang			varchar(50),
 	status_ruang 			varchar(20)
 );
 
-create table obat (
+CREATE TABLE obat (
 	id_obat				int auto_increment primary key,
 	nama_obat			varchar(50)		not null,
 	jenis_obat			varchar(50),
@@ -38,13 +38,13 @@ create table obat (
 	kadaluarsa_obat			date
 );
 
-create table petugas (
+CREATE TABLE petugas (
 	id_petugas			int primary key,
 	nama_petugas			varchar(50)		not null,
 	telp_petugas			varchar(12)
 );
 
-create table tagihan (
+CREATE TABLE tagihan (
 	id_tagihan			int primary key,
 	tanggal_tagihan			datetime,
 	id_pasien			int references pasien(id_pasien),
@@ -67,12 +67,12 @@ INSERT dokter VALUES
  (2, 'dr. Yani Muvitasari', '1984/07/30', "Jakarta Pusat", '(120)777897756'),
  (3, 'dr. Pipin Abdilah', '1975/12/31', "Jakarta Pusat", '(120)363125666');
 
- INSERT pasien VALUES
+INSERT pasien VALUES
  (1, 'Ahmad Bastian Hatta', 'L', '1996/04/28', '68', 'O-','170','088992244556', 'Migran Berat'),
  (2, 'Haiqal Alfa Reji', 'L', '2002/11/13', '59', 'AB+','169','086098756422', 'Demam'),
  (3, 'Geral Hassan bakir', 'L', '1986/12/17', '70', 'A-','155','084987557721', 'Flu');
 
- insert ruang_pasien VALUES
+INSERT ruang_pasien VALUES
  (1, 'ICU', 'terpakai'),
  (2, 'HCU', 'kosong'),
  (3, 'ICCU', 'kosong'),
@@ -93,7 +93,7 @@ INSERT petugas VALUES
 
 select id_obat,
 	harga_satuan_obat*jumlah_obat as total_obat
-from tagihan;
+	from tagihan;
 
 -- foreign key id_petugas
 -- references petugas(id_petugas)
