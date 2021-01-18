@@ -5,7 +5,7 @@ USE clinic;
 CREATE TABLE dokter (
 	id_dokter 			int primary key,
 	NamaDokter			varchar(50) 		not null,
-     TanggaLahir		 	date,
+     	TanggaLahir		 	date,
 	Alamat				varchar(25),
 	NomorTelpon			varchar(12)
 );
