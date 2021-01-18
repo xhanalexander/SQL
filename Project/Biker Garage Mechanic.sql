@@ -4,7 +4,7 @@ USE Garage;
 
 CREATE TABLE montir (
 	id_montir			varchar(5),
-	NamaMontir			varchar(50),
+	NamaMontir			varchar(50)		not null,
 	KontakMontir			varchar(12),
 	Alamat				varchar(30),
 	Keaktifan			varchar(12),
@@ -22,7 +22,7 @@ INSERT montir VALUES
 
 CREATE TABLE customer (
 	id_customer			varchar(4),
-	NamaCustomer			varchar(25),
+	NamaCustomer			varchar(25)		not null,
 	NamaBelakang			varchar(25),
 	AlamatCustomer			varchar(30),
 	KontakCustomer			varchar(12),
@@ -70,7 +70,7 @@ INSERT kendaraan VALUES
 
 CREATE TABLE supplier (
 	id_supplier			varchar(5),
-	NamaSupplier			varchar(20),
+	NamaSupplier			varchar(20)		not null,
 	KontakSupplier			varchar(9),
 	AlamatSupplier			varchar(50),
 	Kodepos				varchar(5),
@@ -97,7 +97,7 @@ INSERT supplier VALUES
 CREATE TABLE sparepart (
 	id_sparepart			varchar(5),
 	id_supplier			varchar(5),
-	NamaSparepart			varchar(50),
+	NamaSparepart			varchar(50)		not null,
 	KodeSparepart			char(5) UNIQUE KEY,
 	HargaBeli			float(6),
 	HargaJual			float(6),
