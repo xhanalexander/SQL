@@ -3,11 +3,11 @@ CREATE DATABASE Garage;
 USE Garage;
 
 CREATE TABLE montir (
-	id_montir				varchar(5),
+	id_montir			varchar(5),
 	NamaMontir			varchar(50),
 	KontakMontir			varchar(12),
 	Alamat				varchar(30),
-	Keaktifan				varchar(12),
+	Keaktifan			varchar(12),
 	primary key			(id_montir)
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE kendaraan (
 	id_Kendaraan			varchar(7),
 	id_customer			varchar(4),
 	JenisKendaraan			varchar(15),
-	Merk					varchar(15),
+	Merk				varchar(15),
 	Warna				varchar(15),
 	Tahun				varchar(4),
 	primary key			(id_Kendaraan),
@@ -99,8 +99,8 @@ CREATE TABLE sparepart (
 	id_supplier			varchar(5),
 	NamaSparepart			varchar(50),
 	KodeSparepart			char(5) UNIQUE KEY,
-	HargaBeli				float(6),
-	HargaJual				float(6),
+	HargaBeli			float(6),
+	HargaJual			float(6),
 	StokBarang			float(3),
 	primary key			(id_sparepart),
 	foreign key			(id_supplier) REFERENCES supplier(id_supplier)
@@ -124,14 +124,14 @@ INSERT sparepart VALUES
 ('BA314','S115','Velg Motor','VLG','479000','490000','12');
 
 CREATE TABLE biayajasaservis (
-	id_servis				varchar(6),
+	id_servis			varchar(6),
 	TanggalServis			date,
 	NamaMontir			varchar(50) REFERENCES montir(NamaMontir),
-	BiayaJasa				float(6),
+	BiayaJasa			float(6),
 	id_Kendaraan			varchar(7) REFERENCES kendaraan(id_Kendaraan),
 	NamaCustomer			varchar(25) REFERENCES customer(NamaCustomer),
 	id_sparepart			varchar(5) REFERENCES sparepart(id_sparepart),
-	HargaJual				float(6) REFERENCES sparepart(HargaJual),
+	HargaJual			float(6) REFERENCES sparepart(HargaJual),
 	primary Key			(id_servis)
 );
 
